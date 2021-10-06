@@ -1,0 +1,19 @@
+body  {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.content {
+    display: flex;
+    padding: 25px;
+    gap: 10px;
+    background-color: black;
+}
+
+input {
+    background-color: black;
+    color: blanchedalmond;
+    font-weight: 800;
+}
