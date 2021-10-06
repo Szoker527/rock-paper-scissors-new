@@ -74,5 +74,8 @@ function game() {
     else if (userScore = computerScore) {
         alert(`It's a draw! Final Score: ${userScore} : ${computerScore}`)
     }
+    else {
+        alert("Something went wrong!")
+    }
 }
-
+console.log(game());
