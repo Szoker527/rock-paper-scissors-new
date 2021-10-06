@@ -1,4 +1,2 @@
-# rock-paper-scissors-new
+# Work on new rock paper scrissors project for The Odin Project
 
-
-<h1>Work on new rock paper scrissors project for The Odin Project</h1>
