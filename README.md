@@ -1,2 +1,3 @@
-# Work on new rock paper scrissors project for The Odin Project
+# Project rock paper scrissors  for The Odin Project
 
+<a href=https://szoker527.github.io/rock-paper-scissors-new>DEMO</a> 

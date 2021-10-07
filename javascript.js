@@ -14,11 +14,11 @@ function computerPlay() {
 
 function userPlay() {
     userChoice = prompt("What do you choose?");
-    if (userChoice.toLowerCase() == true) {
-        return;
+    if (userChoice == null) {
+        return alert("Follow the rules!")
     }
-    else if(userChoice.toLowerCase() == null) {
-        return userPlay();
+    else {
+        return userChoice.toLowerCase();
     }
 }
 
@@ -42,8 +42,8 @@ function playRound(playerSelection, computerSelection) {
 
         }
         else {
-            alert("There is a Problem!");
-            return "There is a Problem!";
+            alert("You did something you shouldn't!");
+            return "You did something you shouldn't!";
         }
         
   }
@@ -57,22 +57,35 @@ function game() {
         ++keepScore;
         ++userScore;
         --computerScore;
-        alert(`Game Round: ${keepScore} User Score: ${userScore} Computer Score: ${computerScore}`);             
+        alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);             
     }
     else if (gameRound === "You Lost!") {
         ++keepScore;
         --userScore;
         ++computerScore;
-        alert(`Game Round: ${keepScore} User Score: ${userScore} Computer Score: ${computerScore}`);
+        alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
     }
     else if (gameRound === "Draw!") {
         ++keepScore;
         userScore;
         computerScore;
-        alert(`Game Round: ${keepScore}  User Score: ${userScore} Computer Score: ${computerScore}`);
+        alert(`Game Round: ${keepScore}  User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
     }
     else {
-        alert("Something wrong!")
+        ++keepScore;
+        userScore;
+        computerScore;
+        alert(`Game Round: ${keepScore}  User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
+    }
+}
+
+function playAgain(){
+    let gameAgain = prompt("Whant to play again", "");
+    if (gameAgain == "yes") {
+         return fullGame();
+    }
+    else if(gameAgain == "no" || null){
+        alert("GAME OVER!")
     }
 }
 
@@ -84,16 +97,19 @@ function fullGame() {
         game()
     }
     if (userScore > computerScore) {
-        alert(`Congrats you won! Final Score: ${userScore} : ${computerScore}`);
+        alert(`Congrats you won! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
+        return playAgain()
     }
     else if (userScore < computerScore) {
-        alert(`Wow you lost! Final Score: ${userScore} : ${computerScore}`);
+        alert(`Wow you lost! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
+        return playAgain()
     }
     else if (userScore = computerScore) {
-       alert(`It's a draw! Final Score: ${userScore} : ${computerScore}`);
+       alert(`It's a draw! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
+       return playAgain()
     }
     else {
-        alert("Something went wrong!");
+        alert(`Something wrong!`);
     }
 }
 
