@@ -56,12 +56,12 @@ function game() {
     if (gameRound === "You Won!") {
         ++keepScore;
         ++userScore;
-        --computerScore;
+        computerScore;
         alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);             
     }
     else if (gameRound === "You Lost!") {
         ++keepScore;
-        --userScore;
+        userScore;
         ++computerScore;
         alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
     }
