@@ -2,26 +2,29 @@
 function computerPlay() {
     let randomNum = Math.floor(Math.random()*3) + 1
     if (randomNum == 1) {
+        console.log("rock");
         return "rock"
     }
     else if (randomNum == 2) {
+        console.log("paper");
         return "paper"
     }
     else {
+        console.log("scissors");
         return "scissors"
     }
 } 
 
-function userPlay() {
-    userChoice = prompt("What do you choose?");
-    if (userChoice == null) {
-        return alert("Follow the rules!")
-    }
-    else {
-        return userChoice.toLowerCase();
-    }
-}
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissBtn = document.querySelector('#scissors');
 
+rockBtn.addEventListener("click", fullGame);
+paperBtn.addEventListener("click", fullGame);
+scissBtn.addEventListener("click", fullGame);
+
+
+const playerSelection = rockBtn || paperBtn || scissBtn;
 
 function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "rock" || playerSelection == "paper" && computerSelection == "paper" 
@@ -49,8 +52,9 @@ function playRound(playerSelection, computerSelection) {
   }
 
 
-function game() {
-    const playerSelection = userPlay();
+function game(e) {
+    const playerSelection = e.target.innerText;
+    console.log(playerSelection);
     const computerSelection = computerPlay();
     const gameRound = playRound(playerSelection, computerSelection);
     if (gameRound === "You Won!") {
@@ -79,43 +83,25 @@ function game() {
     }
 }
 
-function playAgain(){
-    let gameAgain = prompt("Whant to play again", "");
-    if (gameAgain == "yes") {
-         return fullGame();
-    }
-    else if(gameAgain == "no" || null){
-        alert("GAME OVER!")
-    }
-}
 
-function fullGame() {
+function fullGame(e) {
     keepScore = 0;
     userScore = 0;
     computerScore = 0;
-    for (let i = 1; i <= 5; i++) {
-        game()
-    }
-    if (userScore > computerScore) {
-        alert(`Congrats you won! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
-        return playAgain()
-    }
-    else if (userScore < computerScore) {
-        alert(`Wow you lost! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
-        return playAgain()
-    }
-    else if (userScore = computerScore) {
-       alert(`It's a draw! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
-       return playAgain()
-    }
-    else {
-        alert(`Something wrong!`);
-    }
+    game(e)
+        if (userScore > computerScore) {
+            alert(`Congrats you won! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
+        }
+        else if (userScore < computerScore) {
+            alert(`Wow you lost! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
+        }
+        else if (userScore == computerScore) {
+            alert(`It's a draw! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
+        }
+        else {
+            alert(`Something wrong!`);
+        }
 }
-
-console.log(fullGame())
-
-
 
 
 
