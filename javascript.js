@@ -1,3 +1,29 @@
+const startBtn = document.querySelector('#start');
+
+startBtn.addEventListener("click", );
+
+
+const rockBtn = document.querySelector('#rock');
+
+
+const container = document.querySelector('#results');
+
+const scoreGame = document.createElement("div");
+scoreGame.classList.add("text");
+scoreGame.innerText = `Game Round: 0 User Score: 0 Computer Score: 0`
+container.appendChild(scoreGame);
+
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener("click", fullGame);
+paperBtn.addEventListener("click", fullGame);
+scissBtn.addEventListener("click", fullGame);
+
+function pageChange(e) {
+    console.log(e);
+}
 
 function computerPlay() {
     let randomNum = Math.floor(Math.random()*3) + 1
@@ -14,17 +40,6 @@ function computerPlay() {
         return "scissors"
     }
 } 
-
-const rockBtn = document.querySelector('#rock');
-const paperBtn = document.querySelector('#paper');
-const scissBtn = document.querySelector('#scissors');
-
-rockBtn.addEventListener("click", fullGame);
-paperBtn.addEventListener("click", fullGame);
-scissBtn.addEventListener("click", fullGame);
-
-
-const playerSelection = rockBtn || paperBtn || scissBtn;
 
 function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "rock" || playerSelection == "paper" && computerSelection == "paper" 
@@ -51,35 +66,35 @@ function playRound(playerSelection, computerSelection) {
         
   }
 
-
 function game(e) {
     const playerSelection = e.target.innerText;
     console.log(playerSelection);
     const computerSelection = computerPlay();
     const gameRound = playRound(playerSelection, computerSelection);
+
     if (gameRound === "You Won!") {
         ++keepScore;
         ++userScore;
         computerScore;
-        alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);             
+        scoreGame.innerText = `Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`;            
     }
     else if (gameRound === "You Lost!") {
         ++keepScore;
         userScore;
         ++computerScore;
-        alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
+        scoreGame.innerText = `Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`;    
     }
     else if (gameRound === "Draw!") {
         ++keepScore;
         userScore;
         computerScore;
-        alert(`Game Round: ${keepScore}  User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
+        scoreGame.innerText = `Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`;    
     }
     else if (gameRound === "You did something you shouldn't!"){
         ++keepScore;
         userScore;
         computerScore;
-        alert(`Game Round: ${keepScore}  User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
+        scoreGame.innerText = `Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`;    
     }
 }
 
@@ -88,7 +103,9 @@ function fullGame(e) {
     keepScore = 0;
     userScore = 0;
     computerScore = 0;
-    game(e)
+    for (let i = 0; i < 5; i++){
+        game(e)
+    }
         if (userScore > computerScore) {
             alert(`Congrats you won! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
         }
