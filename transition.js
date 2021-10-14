@@ -11,5 +11,19 @@ function showGame() {
     }
 }
 
+const userChoice = Array.from(document.querySelectorAll(".userimg img"));
+
+userChoice.forEach(img => img.addEventListener("click", pageChange))
+
+
+function pageChange(e) {
+    const parent = document.getElementById('userPlay');
+    const img = document.getElementById(`${e.target.id}`)
+    let img_fight = img.cloneNode(true)
+    parent.appendChild(img_fight);
+}
+
+
+
 
 startBtn.addEventListener("click", showGame );

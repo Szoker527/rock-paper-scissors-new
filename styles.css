@@ -4,9 +4,13 @@ body  {
     flex-direction: column;
     margin: 0;
     min-height: 100vh;
+    overflow: hidden;
     color: #e5e7eb;
 }
-
+.page, 
+.end {
+    flex: 1;
+}
 .headContent {
     display: flex;
     justify-content: center;
@@ -43,13 +47,18 @@ body  {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: auto;
+    gap: 20px;
 }
 
 .gameDisplay {
     display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    gap: 50px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    gap: 100px;
 }
 div .gamePlay {
     display: flex;
@@ -58,27 +67,39 @@ div .gamePlay {
 .gamePlay img {
     width: 200px;
     height: 200px;
+    border-radius: 5px;
 }
 
 .userChoice {
     display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    gap: 50px;
+    gap: 100px;
+    width: 100vw;
+    justify-content: center;
 }
 
 div .userimg {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 .userimg img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
 }
 
 .scoreBrd {
-    margin-top: auto;
+    padding-top: 30px;
 }
+div .score {
+    display: flex;
 
+    gap: 50px;
+}
+.scoreBrd p {
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+}
 
 
