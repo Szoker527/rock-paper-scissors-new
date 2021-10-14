@@ -8,24 +8,61 @@
     </head>
     <body>
         <main class="page">
-            <h1>Do you have what it takes to beat the machine?</h1>
-            <div class="poptext">
+            <h1 class="headText">Do you have what it takes to beat the machine?</h1>
+            <div class="startBtn">
+                <button>START!</button>
+            </div>
+            <template class="poptext">
+            <div class="preptext">
                 <p>Time to fight to the death choose your weapon!</p>
             </div>
-            <div class="game">
-                <div>
-                    <label>ROCK!</label>
-                    <img src="images/rock.png"  alt="rock">
-                </div>   
-                <div>
-                    <label>PAPER!</label>
-                    <img src="images/paper.jpg"  alt="paper">
-                </div>    
-                <div>
-                    <label>SCISSORS!</label>
-                    <img src="images/scissors.png"  alt="scissors">
-                </div>                 
-            </div>
+            </template>
+            <template class="showGame">
+                <div class="gameDisplay">
+                    <div class="headGame">
+                        <h3 class="headGame"></h3>
+                    </div>
+                    <div class="userPlay">
+                        <label class="userWeapon"></label>
+                        <img src="#" alt="">
+                    </div>
+                    <div class="fightSign">
+                        <img src="#" alt="">
+                    </div>
+                    <div class="compPlay">
+                        <img src="#" alt="">
+                    </div>
+                </div>
+                <div class="userChoice">
+                        <div>
+                            <label>ROCK!</label>
+                            <img src="images/rock.png"  alt="rock">
+                        </div>   
+                        <div>
+                            <label>PAPER!</label>
+                            <img src="images/paper.jpg"  alt="paper">
+                        </div>    
+                        <div>
+                            <label>SCISSORS!</label>
+                            <img src="images/scissors.png"  alt="scissors">
+                        </div>                 
+                </div>
+                <div class="scoreBrd">
+                    <div class="round">
+                        <p>GAME ROUND:<span>0</span></p>
+                    </div>
+                    <div class="score">
+                        <p>Your Score:<span>0</span></p>
+                        <p>Machine Score:<span>0</span></p>
+                    </div>
+                </div>
+            </template>
         </main>
+        <template class="end">
+            <h1 class="finHead"></h1>
+            <div class="endBtn">
+                <button class="endBtn"></button>
+            </div>
+        </template>
     </body>
 </html>
