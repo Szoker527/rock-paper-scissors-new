@@ -4,45 +4,43 @@
         <meta charset="UTF-8">
         <title>ROCK PAPER SCISSORS</title>
         <link rel="stylesheet" href="styles.css">
+        <script src="transition.js" defer></script>
         <script src="javascript.js" defer></script>
     </head>
     <body>
         <main class="page">
-            <h1 class="headText">Do you have what it takes to beat the machine?</h1>
-            <div class="startBtn">
+            <div class="headContent">
+                <h1 class="headText">Do you have what it takes to beat the machine?</h1>
+            </div>
+            <div id="startBtn">
                 <button>START!</button>
             </div>
-            <template class="poptext">
-            <div class="preptext">
-                <p>Time to fight to the death choose your weapon!</p>
-            </div>
-            </template>
-            <template class="showGame">
+            <div id="hiddenGame">
                 <div class="gameDisplay">
                     <div class="headGame">
                         <h3 class="headGame"></h3>
                     </div>
-                    <div class="userPlay">
+                    <div class="gamePlay">
                         <label class="userWeapon"></label>
                         <img src="#" alt="">
                     </div>
-                    <div class="fightSign">
+                    <div class="gamePlay">
                         <img src="#" alt="">
                     </div>
-                    <div class="compPlay">
+                    <div class="gamePlay">
                         <img src="#" alt="">
                     </div>
                 </div>
                 <div class="userChoice">
-                        <div>
+                        <div class="userimg">
                             <label>ROCK!</label>
                             <img src="images/rock.png"  alt="rock">
                         </div>   
-                        <div>
+                        <div class="userimg">
                             <label>PAPER!</label>
                             <img src="images/paper.jpg"  alt="paper">
                         </div>    
-                        <div>
+                        <div class="userimg">
                             <label>SCISSORS!</label>
                             <img src="images/scissors.png"  alt="scissors">
                         </div>                 
@@ -56,7 +54,7 @@
                         <p>Machine Score:<span>0</span></p>
                     </div>
                 </div>
-            </template>
+            </div>
         </main>
         <template class="end">
             <h1 class="finHead"></h1>
