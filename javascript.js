@@ -1,66 +1,77 @@
-const startBtn = document.querySelector('#start');
-
-startBtn.addEventListener("click", );
+// window.onload = 
 
 
-const rockBtn = document.querySelector('#rock');
 
+const startBtn = document.getElementsByTagName("button")[0];
+startBtn.addEventListener("click", showGame );
 
-const container = document.querySelector('#results');
-
-const scoreGame = document.createElement("div");
-scoreGame.classList.add("text");
-scoreGame.innerText = `Game Round: 0 User Score: 0 Computer Score: 0`
-container.appendChild(scoreGame);
-
-const rockBtn = document.querySelector('#rock');
-const paperBtn = document.querySelector('#paper');
-const scissBtn = document.querySelector('#scissors');
-
-rockBtn.addEventListener("click", fullGame);
-paperBtn.addEventListener("click", fullGame);
-scissBtn.addEventListener("click", fullGame);
-
-function pageChange(e) {
-    console.log(e);
-}
-
-function computerPlay() {
-    let randomNum = Math.floor(Math.random()*3) + 1
-    if (randomNum == 1) {
-        console.log("rock");
-        return "rock"
-    }
-    else if (randomNum == 2) {
-        console.log("paper");
-        return "paper"
+function showGame() {
+    const hiddenGame = document.getElementById('hiddenGame')
+    if (hiddenGame.style.display === "none") {
+        hiddenGame.classList.add("showGame");
+        document.getElementById('startBtn').style.display='none';
     }
     else {
-        console.log("scissors");
-        return "scissors"
+        hiddenGame.style.display = "none";
     }
-} 
+}
+
+
+
+const userChoice = Array.from(document.querySelectorAll(".userimg img"));
+userChoice.forEach(img => img.addEventListener("click", userWeapon))
+
+const roundResult = querySelector("scoreShow");
+function userPick(e) {
+    const choice = e.target.id;
+    const label = document.querySelector(".userWeap")
+    label.innerText = choice.toUpperCase();
+}
+
+function userWeapon (e) {
+    const imagesFight = document.querySelector(".choiceRPS")
+    if (e.target.id == "rock"){
+        userPick(e)
+        imagesFight["src"] = "images/rock2.jpg";
+        }
+    if (e.target.id == "paper"){
+        userPick(e)
+        imagesFight["src"] = "images/paper2.jpg";
+        }
+    if (e.target.id == "scissors"){
+        userPick(e)
+        imagesFight["src"] = "images/scissors2.jpg";
+        }
+}
+const playerSelection = userPick(e);
+console.log(playerSelection);
+
+const myArray = ["Rock", "Paper", "Scissors"];
+
+function computerPlay() {
+  return myArray[~~(Math.random() * myArray.length)];
+}
 
 function playRound(playerSelection, computerSelection) {
         if (playerSelection == "rock" && computerSelection == "rock" || playerSelection == "paper" && computerSelection == "paper" 
         || playerSelection == "scissors" && computerSelection == "scissors") {
-            alert("Draw!");
+            roundResult.innerText = "Draw!";
             return "Draw!";
         }
         else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors"
         || playerSelection == "scissors" && computerSelection == "rock") {
-            alert("You Lost!");
+            roundResult.innerText = "You Lost!";
             return "You Lost!";
 
         }
         else if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock"
         || playerSelection == "scissors" && computerSelection == "paper"){
-            alert("You Won!");
+            roundResult.innerText = "You Won!";
             return "You Won!";
 
         }
         else {
-            alert("You did something you shouldn't!");
+            roundResult.innerText = "You did something you shouldn't!";
             return "You did something you shouldn't!";
         }
         

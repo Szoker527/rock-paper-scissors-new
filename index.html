@@ -9,28 +9,41 @@
     </head>
     <body>
         <main class="page">
+
             <div class="headContent">
                 <h1 class="headText">Do you have what it takes to beat the machine?</h1>
             </div>
             <div id="startBtn">
                 <button>START!</button>
             </div>
+
+
             <div id="hiddenGame">
                 <div class="gameDisplay">
-                    <div class="headGame">
-                        <h3 class=""></h3>
-                    </div>
-                    <div class="gamePlay" id="userPlay">
-                        <label class="userWeapon"></label>
-                    </div>
-                    <div class="gamePlay">
-                        <h1>VS</h1>
-                    </div>
-                    <div class="gamePlay">
-                        <img src="#" alt="">
+                    <h3 class="scoreShow">asdasdasdas</h3>
+                    <div class="showFight">
+                        <div class="choiceBox">
+                            <label>Your Weapon: <span class="userWeap"></span></label>
+                            <div class="gamePlay box" id="userPlay">
+                                <img class="choiceRPS">
+                            </div>
+                        </div>
+                        <div class="gamePlay">
+                            <h1>VS</h1>
+                        </div>
+                        <div class="choiceBox">
+                            <label class="choiceWeap">Computer Weapon: <span class="choiceWeap"></span></label>
+                            <div class="gamePlay box">
+                                <img>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="userChoice">
+
+
+                <div class="gameDisplay">
+                    <h3 class="scoreShow">Choose your Weapon!</h3>
+                    <div class="showFight bottomChoice">
                         <div class="userimg">
                             <label>ROCK!</label>
                             <img src="images/rock2.jpg"  alt="rock" id="rock">
@@ -42,8 +55,11 @@
                         <div class="userimg">
                             <label>SCISSORS!</label>
                             <img src="images/scissors2.jpg"  alt="scissors" id="scissors">
-                        </div>                 
+                        </div> 
+                    </div>                
                 </div>
+
+
                 <div class="scoreBrd">
                     <div class="round">
                         <p>GAME ROUND: <span>0</span></p>
@@ -55,6 +71,8 @@
                 </div>
             </div>
         </main>
+
+
         <template class="end">
             <h1 class="finHead"></h1>
             <div class="endBtn">

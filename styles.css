@@ -6,6 +6,7 @@ body  {
     min-height: 100vh;
     overflow: hidden;
     color: #e5e7eb;
+    text-align: center;
 }
 .page, 
 .end {
@@ -53,13 +54,34 @@ body  {
 
 .gameDisplay {
     display: flex;
-    padding-top: 50px;
-    padding-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.showFight {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     gap: 100px;
 }
+
+.choiceBox {
+    text-align: left;
+}
+
+.box {
+    border: 4px solid black;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 div .gamePlay {
     display: flex;
     flex-direction: column;
@@ -67,9 +89,14 @@ div .gamePlay {
 .gamePlay img {
     width: 200px;
     height: 200px;
-    border-radius: 5px;
 }
 
+
+
+
+.bottomChoice {
+    padding-top: 30px;
+}
 .userChoice {
     display: flex;
     gap: 100px;
@@ -88,8 +115,12 @@ div .userimg {
     border-radius: 5px;
 }
 
+
+
+
+
 .scoreBrd {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 div .score {
     display: flex;
