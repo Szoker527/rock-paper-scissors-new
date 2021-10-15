@@ -15,7 +15,7 @@ body  {
 .headContent {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .headContent h1 {
@@ -94,7 +94,7 @@ div .gamePlay {
 
 
 
-.bottomChoice {
+#bottomChoice {
     padding-top: 30px;
 }
 .userChoice {
