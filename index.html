@@ -9,18 +9,22 @@
     </head>
     <body>
         <main class="page">
-
-            <div class="headContent">
-                <h1 class="headText">Do you have what it takes to beat the machine?</h1>
-            </div>
-            <div id="startBtn">
-                <button>START!</button>
+            <div id="contentStart">
+                <div class="headContent">
+                    <h1 class="headText">Do you have what it takes to beat the machine?</h1>
+                </div>
+                <div id="startBtn">
+                    <button>START!</button>
+                </div>
             </div>
 
 
             <div id="hiddenGame">
+                <div class="headContent">
+                    <h1 class="headText">Do you have what it takes to beat the machine?</h1>
+                </div>
                 <div class="gameDisplay">
-                    <h3><span id="sroceDis"></span></h3>
+                    <h3><span id="sroceDis">Will you win or lose?</span></h3>
                     <div class="showFight">
                         <div class="choiceBox">
                             <label>Your Weapon: <span class="userWeap"></span></label>
@@ -32,9 +36,9 @@
                             <h1>VS</h1>
                         </div>
                         <div class="choiceBox">
-                            <label class="choiceWeap">Computer Weapon: <span class="choiceWeap"></span></label>
+                            <label >Computer Weapon: <span class="choiceWeap"></span></label>
                             <div class="gamePlay box">
-                                <img>
+                                <img class="cpuRPS">
                             </div>
                         </div>
                     </div>
@@ -62,22 +66,31 @@
 
                 <div class="scoreBrd">
                     <div class="round">
-                        <p>GAME ROUND: <span>0</span></p>
+                        <p>GAME ROUND: <span id="uspcScore">0</span></p>
                     </div>
                     <div class="score">
-                        <p>Your Score: <span>0</span></p>
-                        <p>Machine Score: <span>0</span></p>
+                        <p>Your Score: <span id="usScore">0</span></p>
+                        <p>Machine Score: <span id="pcScore">0</span></p>
                     </div>
                 </div>
             </div>
         </main>
 
 
-        <template class="end">
-            <h1 class="finHead"></h1>
-            <div class="endBtn">
-                <button class="endBtn"></button>
+        <div id="end" class="hideall">
+            <div class="headContent">
+                <h1 id="endHead"></h1>
             </div>
-        </template>
+            <div>
+                <h2>Final Score</h2>
+            </div>
+            <div class="score">
+                <p>Your Score: <span id="usScoreEnd">0</span></p>
+                <p>Machine Score: <span id="pcScoreEnd">0</span></p>
+            </div>
+            <div id="endBtn">
+                <button>Play Again?</button>
+            </div>
+        </div>
     </body>
 </html>

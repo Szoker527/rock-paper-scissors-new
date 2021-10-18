@@ -38,7 +38,9 @@ body  {
     font-weight: 800;
     font-size: 20px;
 }
-
+.hideall {
+    display: none;
+}
 #hiddenGame {
     display: none;
 }
@@ -122,10 +124,10 @@ div .userimg {
 .scoreBrd {
     padding-top: 10px;
 }
-div .score {
+.score {
     display: flex;
-
     gap: 50px;
+    justify-content: center;
 }
 .scoreBrd p {
     text-align: center;
@@ -134,3 +136,46 @@ div .score {
 }
 
 
+
+
+#end {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+}
+
+.h2 {
+    text-align: center;
+    font-size: 50px
+
+}
+#endhead {
+    font-size: 150px;
+    padding: 100px;
+}
+
+#endBtn {
+    display: flex;
+    justify-content: center;
+    min-height: 60vh;
+    align-items: center;
+}
+
+#endBtn button {
+    width: 150px;
+    height: 100px;
+    color: #1f2937;
+    background-color: #e5e7eb;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 200px;
+}
+
+.score p {
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+}
