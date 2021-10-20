@@ -4,8 +4,99 @@
         <meta charset="UTF-8">
         <title>ROCK PAPER SCISSORS</title>
         <link rel="stylesheet" href="styles.css">
+<<<<<<< HEAD
         <script src="javascript.js" defer></script>
     </head>
     <body>
+=======
+        <script src="transition.js" defer></script>
+        <script src="javascript.js" defer></script>
+    </head>
+    <body>
+        <main class="page">
+            <div id="contentStart">
+                <div class="headContent">
+                    <h1 class="headText">Do you have what it takes to beat the machine?</h1>
+                </div>
+                <div id="startBtn">
+                    <button>START!</button>
+                </div>
+            </div>
+
+
+            <div id="hiddenGame">
+                <div class="headContent">
+                    <h1 class="headText">Do you have what it takes to beat the machine?</h1>
+                </div>
+                <div class="gameDisplay">
+                    <h3><span id="sroceDis">Will you win or lose?</span></h3>
+                    <div class="showFight">
+                        <div class="choiceBox">
+                            <label>Your Weapon: <span class="userWeap"></span></label>
+                            <div class="gamePlay box" id="userPlay">
+                                <img class="choiceRPS">
+                            </div>
+                        </div>
+                        <div class="gamePlay">
+                            <h1>VS</h1>
+                        </div>
+                        <div class="choiceBox">
+                            <label >Computer Weapon: <span class="choiceWeap"></span></label>
+                            <div class="gamePlay box">
+                                <img class="cpuRPS">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="gameDisplay">
+                    <h3 class="scoreShow">Choose your Weapon!</h3>
+                    <div class="showFight" id="bottomChoice">
+                        <div class="userimg">
+                            <label>ROCK!</label>
+                            <img src="images/rock2.jpg"  alt="rock" id="rock">
+                        </div>   
+                        <div class="userimg">
+                            <label>PAPER!</label>
+                            <img src="images/paper2.jpg"  alt="paper" id="paper">
+                        </div>    
+                        <div class="userimg">
+                            <label>SCISSORS!</label>
+                            <img src="images/scissors2.jpg"  alt="scissors" id="scissors">
+                        </div> 
+                    </div>                
+                </div>
+
+
+                <div class="scoreBrd">
+                    <div class="round">
+                        <p>GAME ROUND: <span id="uspcScore">0</span></p>
+                    </div>
+                    <div class="score">
+                        <p>Your Score: <span id="usScore">0</span></p>
+                        <p>Machine Score: <span id="pcScore">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <div id="end" class="hideall">
+            <div class="headContent">
+                <h1 id="endHead"></h1>
+            </div>
+            <div>
+                <h2>Final Score</h2>
+            </div>
+            <div class="score">
+                <p>Your Score: <span id="usScoreEnd">0</span></p>
+                <p>Machine Score: <span id="pcScoreEnd">0</span></p>
+            </div>
+            <div id="endBtn">
+                <button>Play Again?</button>
+            </div>
+        </div>
+>>>>>>> rps-ui
     </body>
 </html>

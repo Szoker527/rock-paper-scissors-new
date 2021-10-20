@@ -1,121 +1,171 @@
 
-function computerPlay() {
-    let randomNum = Math.floor(Math.random()*3) + 1
-    if (randomNum == 1) {
-        return "rock"
-    }
-    else if (randomNum == 2) {
-        return "paper"
-    }
-    else {
-        return "scissors"
-    }
-} 
 
-function userPlay() {
-    userChoice = prompt("What do you choose?");
-    if (userChoice == null) {
-        return alert("Follow the rules!")
-    }
-    else {
-        return userChoice.toLowerCase();
-    }
+
+
+const startBtn = document.getElementsByTagName("button")[0];
+startBtn.addEventListener("click", showGame );
+
+function showGame() {
+    const hiddenGame = document.getElementById('hiddenGame')
+    hiddenGame.classList.add("showGame");
+    const hidestart = document.getElementById("contentStart");    
+    hidestart.classList.add("hideall");
+}
+
+let usergameScore = 0;
+let cpugameScore = 0;
+let gamedraw = 0;
+
+
+const myArray = ["Rock", "Paper", "Scissors"];
+
+function computerPlay() {
+  return myArray[~~(Math.random() * myArray.length)];
 }
 
 
+const userChoice = document.querySelectorAll(".userimg img");
+
+userChoice.forEach(img => img.addEventListener("click", userWeapon));
+
+userChoice.forEach(img => img.addEventListener("click", roundOne));
+
+function roundOne(e) {
+    playerSelection = e.target.id;
+    computerSelection = computerPlay().toLowerCase();
+    playRound(playerSelection, computerSelection);
+
+    if (cpugameScore === 5 || usergameScore === 5 ) {
+        gameEnd();
+    }
+}
+
+function playersLabel(e) {
+    const choice = e.target.id;
+    const label = document.querySelector(".userWeap")
+    label.innerText = choice.toUpperCase();
+}
+
+function cpuLabel(computerSelection) {
+    const label = document.querySelector(".choiceWeap")
+    label.innerText = computerSelection.toUpperCase();
+}
+
+function userWeapon (e) {
+    const imagesFight = document.querySelector(".choiceRPS")
+    if (e.target.id == "rock"){
+        playersLabel(e)
+        imagesFight["src"] = "images/rock2.jpg";
+        }
+    if (e.target.id == "paper"){
+        playersLabel(e)
+        imagesFight["src"] = "images/paper2.jpg";
+        }
+    if (e.target.id == "scissors"){
+        playersLabel(e)
+        imagesFight["src"] = "images/scissors2.jpg";
+        }
+}
+
+function cpuWeapon(computerSelection) {
+    const cpuImage = document.querySelector(".cpuRPS")
+    if (computerSelection == "rock"){
+        cpuImage["src"] = "images/rock2.jpg";
+        }
+    if (computerSelection == "paper"){
+        cpuImage["src"] = "images/paper2.jpg";
+        }
+    if (computerSelection == "scissors"){
+        cpuImage["src"] = "images/scissors2.jpg";
+        }
+}
+
 function playRound(playerSelection, computerSelection) {
-        if (playerSelection == "rock" && computerSelection == "rock" || playerSelection == "paper" && computerSelection == "paper" 
+        if (playerSelection == "rock" && computerSelection == "rock" 
+        || playerSelection == "paper" && computerSelection == "paper" 
         || playerSelection == "scissors" && computerSelection == "scissors") {
-            alert("Draw!");
+            ++gamedraw
+            roundGamecount()
+            document.getElementById("sroceDis").innerHTML = "Draw!";
+            cpuLabel(computerSelection);
+            cpuWeapon(computerSelection);
             return "Draw!";
         }
-        else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors"
-        || playerSelection == "scissors" && computerSelection == "rock") {
-            alert("You Lost!");
+        else if (playerSelection == "rock" && computerSelection == "paper"
+        || playerSelection == "paper" && computerSelection == "scissors"
+        || playerSelection == "scissors" && computerSelection == "rock"){
+            cpugameScore = ++cpugameScore;
+            roundGamecount()
+            cpuGamecount();
+            document.getElementById("sroceDis").innerHTML = "You Lost!";
+            cpuLabel(computerSelection);
+            cpuWeapon(computerSelection);
             return "You Lost!";
 
         }
-        else if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock"
+        else if (playerSelection == "rock" && computerSelection == "scissors" 
+        || playerSelection == "paper" && computerSelection == "rock"
         || playerSelection == "scissors" && computerSelection == "paper"){
-            alert("You Won!");
+            usergameScore = ++usergameScore;
+            roundGamecount()
+            playerGamecount();
+            document.getElementById("sroceDis").innerHTML = "You Won!";
+            cpuLabel(computerSelection);
+            cpuWeapon(computerSelection);
             return "You Won!";
 
         }
         else {
-            alert("You did something you shouldn't!");
+            document.getElementById("sroceDis").innerHTML = "You did something you shouldn't!";
+            cpuLabel(computerSelection);
+            cpuWeapon(computerSelection);
             return "You did something you shouldn't!";
         }
         
   }
 
 
-function game() {
-    const playerSelection = userPlay();
-    const computerSelection = computerPlay();
-    const gameRound = playRound(playerSelection, computerSelection);
-    if (gameRound === "You Won!") {
-        ++keepScore;
-        ++userScore;
-        computerScore;
-        alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);             
-    }
-    else if (gameRound === "You Lost!") {
-        ++keepScore;
-        userScore;
-        ++computerScore;
-        alert(`Game Round: ${keepScore} User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
-    }
-    else if (gameRound === "Draw!") {
-        ++keepScore;
-        userScore;
-        computerScore;
-        alert(`Game Round: ${keepScore}  User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
-    }
-    else if (gameRound === "You did something you shouldn't!"){
-        ++keepScore;
-        userScore;
-        computerScore;
-        alert(`Game Round: ${keepScore}  User Score: ${(userScore < 0)? 0 : userScore} Computer Score: ${(computerScore < 0)? 0 : computerScore}`);
-    }
+function cpuGamecount() {
+    const cpucount = document.getElementById("pcScore");
+    cpucount.innerHTML = cpugameScore;
+    const cpucountEnd = document.getElementById("pcScoreEnd");
+    cpucountEnd.innerHTML = cpugameScore;
 }
 
-function playAgain(){
-    let gameAgain = prompt("Whant to play again", "");
-    if (gameAgain == "yes") {
-         return fullGame();
-    }
-    else if(gameAgain == "no" || null){
-        alert("GAME OVER!")
-    }
+function playerGamecount() {
+    const playercount = document.getElementById("usScore");
+    playercount.innerHTML = usergameScore;
+    const playercountEnd = document.getElementById("usScoreEnd");
+    playercountEnd.innerHTML = usergameScore;
 }
 
-function fullGame() {
-    keepScore = 0;
-    userScore = 0;
-    computerScore = 0;
-    for (let i = 1; i <= 5; i++) {
-        game()
-    }
-    if (userScore > computerScore) {
-        alert(`Congrats you won! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
-        return playAgain()
-    }
-    else if (userScore < computerScore) {
-        alert(`Wow you lost! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
-        return playAgain()
-    }
-    else if (userScore = computerScore) {
-       alert(`It's a draw! Final Score: ${(userScore < 0)? 0 : userScore} : ${(computerScore < 0)? 0 : computerScore}`);
-       return playAgain()
-    }
-    else {
-        alert(`Something wrong!`);
-    }
+function roundGamecount() {
+    const roundScore = document.getElementById("uspcScore");
+    roundScore.innerHTML = `${usergameScore + cpugameScore + gamedraw}`;
 }
 
-console.log(fullGame())
+const endBtn = document.getElementsByTagName("button")[1];
+endBtn.addEventListener("click", showAgain);
+
+function showAgain() {
+    location.reload()
+}
 
 
 
+function gameEnd() {
+    const hidemain = document.querySelector("main");
+    hidemain.classList.add("hideall");
+    const showend = document.getElementById("end");
+    showend.classList.remove("hideall");
+    const endTitle = document.getElementById("endHead");
 
 
+    if (usergameScore > cpugameScore) {
+        endTitle.innerHTML = "Machine finally lost!"
+    }
+    else if (usergameScore < cpugameScore) {
+        endTitle.innerHTML = "Humans are still too weak against Machine!"
+    }
+
+}
